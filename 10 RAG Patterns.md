@@ -13,3 +13,6 @@
 | **Multimodal RAG**                          | Retrieves from multimodal stores (text, image, video, audio, code).                              | Enables cross-modal reasoning, richer context.       |
 
 > Source: Converted from file `10 RAG Patterns` in the repository.
+
+
+<img width="1729" height="946" alt="image" src="https://github.com/user-attachments/assets/43faf18a-9e3c-4edb-84ad-ee144f744a22" />
