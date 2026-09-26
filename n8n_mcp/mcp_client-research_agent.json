@@ -1,0 +1,138 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "c3ac7538-548c-4301-98f7-7d9f903c1cf9",
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "9b01340b-0616-4ad9-b106-ac21c1885d9f"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful research assistant and use the MarketIntel tool to conduct research."
+        }
+      },
+      "id": "52cea7f6-5468-426d-af39-64bf10766b7b",
+      "name": "Research Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "724451b8-96d3-4d63-ba7a-c18684ac1b29",
+      "name": "Google Gemini Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        192,
+        304
+      ],
+      "credentials": {
+        "googlePalmApi": {
+          "id": "pj6eoQMM0gd19AtI",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "826ad5b0-20df-4606-b2c8-dace89aa864c",
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        304,
+        224
+      ]
+    },
+    {
+      "parameters": {
+        "endpointUrl": "https://subhroy.app.n8n.cloud/mcp/b95ec77b-7049-434f-bc12-e6d17cb8a782",
+        "options": {}
+      },
+      "id": "760396d9-1321-4895-b481-a1b240e5c76a",
+      "name": "MCP Client",
+      "type": "@n8n/n8n-nodes-langchain.mcpClientTool",
+      "typeVersion": 1.4,
+      "position": [
+        576,
+        176
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Research Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Research Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Research Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MCP Client": {
+      "ai_tool": [
+        [
+          {
+            "node": "Research Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "ead82e93-6ccb-4934-80a7-6402fda26843",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7d49ce6d56cbeaee56b21d5b7b02c503b3a3f89aabeb2b95508405162d6422ab"
+  },
+  "nodeGroups": [],
+  "id": "qp1klPq3bAe6tb9g",
+  "tags": []
+}

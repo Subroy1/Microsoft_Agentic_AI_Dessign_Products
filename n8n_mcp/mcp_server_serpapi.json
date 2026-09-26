@@ -1,0 +1,59 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "b95ec77b-7049-434f-bc12-e6d17cb8a782"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ee36d809-f408-4200-b282-72d916c2efe9",
+      "name": "MCP Server Trigger",
+      "webhookId": "b95ec77b-7049-434f-bc12-e6d17cb8a782"
+    },
+    {
+      "parameters": {
+        "additionalFields": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-serpapi.serpApiTool",
+      "typeVersion": 1,
+      "position": [
+        96,
+        208
+      ],
+      "id": "2304d45a-30eb-4abf-8513-ba1ef886d904",
+      "name": "Google search in SerpApi"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google search in SerpApi": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "29e192c1-2153-443d-9632-b91372ce4b26",
+  "meta": {
+    "instanceId": "7d49ce6d56cbeaee56b21d5b7b02c503b3a3f89aabeb2b95508405162d6422ab"
+  },
+  "nodeGroups": [],
+  "id": "n7nRTnNmN3BGyklh",
+  "tags": []
+}
